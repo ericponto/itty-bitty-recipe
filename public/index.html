@@ -8,7 +8,7 @@ window.onhashchange=window.onload=function(){var hash=window.location.hash.subst
 	//if(!window.localStorage.getItem("toasted"))document.body.classList.add("toasting");
 var iframe=document.getElementById("iframe");var link=document.getElementById("edit");var preamble=undefined;var slashIndex=hash.indexOf("/");var title=hash.substring(0,slashIndex);
 document.title=title.length?decodeURIComponent(title.replace(/_/g," ")):location.hostname;
-document.getElementById("title").textContent=title;
+document.getElementById("title").textContent=title.replace(/_/g," ");
 hash=hash.substring(slashIndex+1);var editable=hash.charAt(0)=="?";if(editable){hash=hash.substring(1)}if(hash.indexOf("data:")!=0){var colon=hash.indexOf(":");if(colon>0&&colon<15){document.body.classList.remove("toasting");return window.location.replace(hash)}var compressed=true;preamble=HEAD_TAGS_EXTENDED;hash="data:text/html;charset=utf-8;"+(compressed?"bxze64,":"base64,")+hash}else if(hash.indexOf("data:text/html;")==0){preamble=HEAD_TAGS}
 // link.onclick=function(){location.href="/edit.html"+location.hash};
 var isIE=navigator.userAgent.match(/rv:11/);var isEdge=navigator.userAgent.match(/Edge\//);if((isEdge||isIE)&&location.href.length==2083){document.getElementById("warning").innerHTML='Edge only supports shorter URLs (maximum 2083 bytes).<br>Larger sites may require a different browser.<br><a href="http://reference.bitty.site">Learn more</a>'}decompressDataURI(hash,preamble,function(hash){if(!hash)return;iframe.sandbox="allow-scripts allow-forms allow-top-navigation allow-popups allow-modals allow-popups-to-escape-sandbox";if(!isIE){if(hash)iframe.src=hash}else{dataToString(hash,function(content){var doc=iframe.contentWindow.document;doc.open();doc.write(content);doc.close()})}});
