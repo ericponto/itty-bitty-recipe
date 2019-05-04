@@ -39,10 +39,10 @@ window.onload = function() {
   content.contentEditable = "true";
   content.focus();
   document.execCommand("selectAll", false, null);
-  QS("#qrcode").onclick = makeQRCode;
-  QS("#twitter").onclick = tweetLink;
-  QS("#copy").onclick = copyLink;
-  QS("#menu").onclick = toggleMenu;
+  // QS("#qrcode").onclick = makeQRCode;
+  // QS("#twitter").onclick = tweetLink;
+  // QS("#copy").onclick = copyLink;
+  // QS("#menu").onclick = toggleMenu;
   var hash = window.location.hash.substring(1);
 
   if (hash.length) {
@@ -231,7 +231,7 @@ function updateLink(url, title, push) {
   if (url.length) {
     url = "/#" + (title || "") + "/" + url;
   } else {
-    url = "/edit";
+    url = "/edit.html";
   }
   var hash = location.hash;
   if (push || !hash || !hash.length) {
@@ -241,16 +241,16 @@ function updateLink(url, title, push) {
   }
   var length = location.href.length;
 
-  QS("#length").innerText = length + " bytes";
-  QS("#length").href = url;
-  for (var key in maxLengths) {
-    var maxLength = maxLengths[key];
-    if (length > maxLength) {
-      QS(key).classList.add("invalid");
-    } else {
-      QS(key).classList.remove("invalid");
-    }
-  }
+  // QS("#length").innerText = length + " bytes";
+  // QS("#length").href = url;
+  // for (var key in maxLengths) {
+  //   var maxLength = maxLengths[key];
+  //   if (length > maxLength) {
+  //     QS(key).classList.add("invalid");
+  //   } else {
+  //     QS(key).classList.remove("invalid");
+  //   }
+  // }
 }
 
 function makeQRCode() {

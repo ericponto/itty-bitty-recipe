@@ -2,9 +2,10 @@ body {
   margin: 0 auto;
   padding: 12vh 10vmin;
   max-width: 35em;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.5em;
-  color: rgba(0, 0, 0, 0.87);
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.75em;
+  color: #444;
 }
 
 h1 {
@@ -43,7 +44,7 @@ body.drag #content {
 
 #content,
 #placeholder {
-  margin: -1em;
+  margin: 1em -1em -1em;
   padding: 1em;
   min-height: 7em;
 }
@@ -62,8 +63,9 @@ body.drag #content {
   top: 0;
   position: absolute;
   padding: 0.5em 0;
-  font-family: monospace;
-  font-weight: bold;
+  font-size: 26px;
+  color: #888;
+  border-bottom: 1px solid #ddd;
 }
 
 body.edited #doc-title:empty:before,
